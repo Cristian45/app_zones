@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20240206031530",
+  "clientRootFolder": "backzone",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "zone_pest",
+  "fields": [
+    {
+      "fieldName": "createdat",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedat",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "backzone",
+  "microservicePath": "/home/usuario/Documentos/olympus/06_laboratorios/test_proyect/back",
+  "name": "ZonePest",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "zone",
+      "relationshipName": "zoneId",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "pest",
+      "relationshipName": "pestId",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="zonePest">
+      <h2 data-cy="zonePestDetailsHeading"><span>Afectación de zona</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ zonePest.id }}</span>
+        </dd>        
+        <!--<dt><span>Updatedat</span></dt>
+        <dd>
+          <span>{{ zonePest.updatedat | formatMediumDatetime }}</span>
+        </dd>-->
+        <dt><span>zona</span></dt>
+        <dd>
+          <div *ngIf="zonePest.zoneId">
+            <a [routerLink]="['/zone', zonePest.zoneId.id, 'view']">{{ zoneName }}</a>
+          </div>
+        </dd>
+        <dt><span>Plaga</span></dt>
+        <dd>
+          <div *ngIf="zonePest.pestId">
+            <a [routerLink]="['/pest', zonePest.pestId.id, 'view']">{{ pestName }}</a>
+          </div>
+        </dd>
+        <dt><span>Fecha creación</span></dt>
+        <dd>
+          <span>{{ zonePest.createdat | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/zone-pest', zonePest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

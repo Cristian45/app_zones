@@ -1,0 +1,9 @@
+{
+  "generator-jhipster:7.9.3": {
+    "promptValues": {
+      "packageName": "com.personal.frontzone",
+      "nativeLanguage": "es",
+      "microservicePath": "/home/usuario/Documentos/olympus/06_laboratorios/test_proyect/back"
+    }
+  }
+}

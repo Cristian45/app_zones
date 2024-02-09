@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-zone-pest-heading" data-cy="ZonePestCreateUpdateHeading">Crear o editar Afectación de zona</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <!--<div class="row mb-3">
+          <label class="form-label" for="field_createdat">Createdat</label>
+          <div class="d-flex">
+            <input
+              id="field_createdat"
+              data-cy="createdat"
+              type="datetime-local"
+              class="form-control"
+              name="createdat"
+              formControlName="createdat"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_updatedat">Updatedat</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedat"
+              data-cy="updatedat"
+              type="datetime-local"
+              class="form-control"
+              name="updatedat"
+              formControlName="updatedat"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>-->
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_zoneId">Zona</label>
+          <select
+            class="form-control"
+            id="field_zoneId"
+            data-cy="zoneId"
+            name="zoneId"
+            formControlName="zoneId"
+            [compareWith]="compareZone"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="zoneOption" *ngFor="let zoneOption of zonesSharedCollection">{{ zoneOption.name }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_pestId">Plaga</label>
+          <select
+            class="form-control"
+            id="field_pestId"
+            data-cy="pestId"
+            name="pestId"
+            formControlName="pestId"
+            [compareWith]="comparePest"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="pestOption" *ngFor="let pestOption of pestsSharedCollection">{{ pestOption.name }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

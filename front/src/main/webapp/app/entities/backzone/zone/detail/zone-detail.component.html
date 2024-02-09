@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="zone">
+      <h2 data-cy="zoneDetailsHeading"><span>Zona</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ zone.id }}</span>
+        </dd>
+        <dt><span>Nombre</span></dt>
+        <dd>
+          <span>{{ zone.name }}</span>
+        </dd>
+        <dt><span>Descripción</span></dt>
+        <dd>
+          <span>{{ zone.description }}</span>
+        </dd>
+        <dt><span>Cantidad de palmas</span></dt>
+        <dd>
+          <span>{{ zone.palmsQuantity }}</span>
+        </dd>
+        <dt><span>Afectada</span></dt>
+        <dd>
+          <span>{{ zone.isAffected }}</span>
+        </dd>
+        <!--<dt><span>Createdat</span></dt>
+        <dd>
+          <span>{{ zone.createdat | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Updatedat</span></dt>
+        <dd>
+          <span>{{ zone.updatedat | formatMediumDatetime }}</span>
+        </dd>-->
+      </dl>
+
+
+      
+      <div *ngIf="quantity > 0">
+        <br>
+        <dt><span>Plagas asociadas:</span></dt>
+        <br>
+        <table class="table table-striped" aria-describedby="page-heading">
+          <thead>
+            <tr>
+              <th scope="col">
+                <div class="d-flex">
+                  <span>Plaga</span>                  
+                </div>
+              </th>
+              <th scope="col">
+                <div class="d-flex">
+                  <span>Afectado</span>                  
+                </div>
+              </th>                
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pest of pests" data-cy="entityTable">        
+              <td scope="col">{{ pest }}</td>
+              <td scope="col">S</td>      
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/zone', zone.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editar</span>
+      </button>
+    </div>
+  </div>
+</div>
