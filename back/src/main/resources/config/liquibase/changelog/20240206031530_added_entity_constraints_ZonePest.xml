@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ZonePest.
+    -->
+    <changeSet id="20240206031530-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="zone_id_id"
+                                 baseTableName="zone_pest"
+                                 constraintName="fk_zone_pest__zone_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="zone"/>
+
+        <addForeignKeyConstraint baseColumnNames="pest_id_id"
+                                 baseTableName="zone_pest"
+                                 constraintName="fk_zone_pest__pest_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pest"/>
+    </changeSet>
+</databaseChangeLog>

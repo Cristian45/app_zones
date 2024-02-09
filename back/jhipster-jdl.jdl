@@ -1,0 +1,42 @@
+
+entity Zone {
+	name String,
+    description String,
+    palmsQuantity Integer,
+    isAffected String,
+    createdat Instant,
+    updatedat Instant    
+}
+
+entity Pest {
+	name String,
+    description String,   
+    createdat Instant,
+    updatedat Instant    
+}
+
+
+entity ZonePest {
+    createdat Instant,
+    updatedat Instant  
+}
+
+relationship ManyToOne {
+	ZonePest{zoneId} to Zone
+}
+
+relationship ManyToOne {
+	ZonePest{pestId} to Pest
+}
+
+// Set pagination options
+paginate Zone, Pest, ZonePest with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
