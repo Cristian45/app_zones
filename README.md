@@ -28,27 +28,12 @@ Clone the project
   git clone https://github.com/Cristian45/app_zones/tree/master
 ```
 
-Backend
-
 Go to the project directory
 
 ```bash
-  cd back
+  cd back/front
 ```
-Start the server
-
-```bash
-  mvn
-```
-
-Frontend
-
-Go to the project directory
-
-```bash
-  cd back
-```
-Start the server
+Start the component
 
 ```bash
   mvn
