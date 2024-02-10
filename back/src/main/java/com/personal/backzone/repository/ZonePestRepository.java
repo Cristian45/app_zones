@@ -36,4 +36,11 @@ public interface ZonePestRepository extends JpaRepository<ZonePest, Long> {
 			+ "	where zp.zoneId.id = :idzone\n"		
 			+ "	and zp.pestId.id = :idpest")
 	int getQuantityZonePest(@Param("idzone") Long idzone, @Param("idpest") Long idpest);
+	
+	@Query("SELECT count(*) "
+			+ "FROM ZonePest zp\n"		
+			+ "	where zp.zoneId.id = :idzone\n"		
+			+ "	and zp.pestId.id = :idpest"
+			+ " and zp.id <> :idzonepest ")
+	int getQuantityZonePestUpdating(@Param("idzone") Long idzone, @Param("idpest") Long idpest, @Param("idzonepest") Long idZonePest);
 }

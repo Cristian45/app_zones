@@ -146,6 +146,17 @@ public class ZonePestResource {
 		if (zonePestDTO.getPestId() == null) {
 			throw new BadRequestAlertException("Se debe enviar una plaga", ENTITY_NAME, "");
 		}
+
+		// [start] validacion de existencia
+		int quantity = this.zonePestRepository.getQuantityZonePestUpdating(zonePestDTO.getZoneId().getId(),
+				zonePestDTO.getPestId().getId(), zonePestDTO.getId());
+
+		if (quantity > 0) {
+			throw new BadRequestAlertException("Ya existe esta asignación de plaga ",
+					ENTITY_NAME, "");
+		}
+		// [end] validacion de existencia
+
 		// consulta antes del update [start]
 
 		Long beforeZone = this.zonePestService.findOne(zonePestDTO.getId()).get().getZoneId().getId();
