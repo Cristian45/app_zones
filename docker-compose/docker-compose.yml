@@ -2,7 +2,7 @@ version: '2'
 
 services:
   backzone:
-    image: backzone
+    image: cegamboa/backzone:1.0.0
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
@@ -33,7 +33,7 @@ services:
       - zona_red
 
   frontzone:
-    image: frontzone
+    image: cegamboa/frontzone:1.0.0
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
