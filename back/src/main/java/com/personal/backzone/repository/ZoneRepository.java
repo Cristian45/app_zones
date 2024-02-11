@@ -26,4 +26,14 @@ public interface ZoneRepository extends JpaRepository<Zone, Long> {
 			+ "	where zp.zoneId.id = :idzone")
 	int getDataAboutZoneQauntity(@Param("idzone") Long id);
 	
+	
+	@Query(" SELECT count(*) from Zone z\n"		
+			+ "	where z.name = lower(:namezone)")
+	int validateZoneInsert(@Param("namezone") String nameZone);
+	
+	@Query(" SELECT count(*) from Zone z\n"		
+			+ "	where z.name = lower(:namezone)"
+			+ " and z.id <> :idzone")
+	int validateZoneUpdate(@Param("namezone") String nameZone, @Param("idzone") Long idZone);
+	
 }

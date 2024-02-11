@@ -11,5 +11,14 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface PestRepository extends JpaRepository<Pest, Long> {
+	
+	@Query(" SELECT count(*) from Pest p\n"		
+			+ "	where p.name = lower(:namepest)")
+	int validatePestInsert(@Param("namepest") String namePest);
+	
+	@Query(" SELECT count(*) from Pest p\n"		
+			+ "	where p.name = lower(:namepest)"
+			+ " and p.id <> :idpest")
+	int validatePestUpdate(@Param("namepest") String namePest, @Param("idpest") Long idPest);
 
 }

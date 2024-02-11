@@ -25,12 +25,12 @@ export class ZoneDetailComponent implements OnInit {
 
     this.zoneService.findDataPest(this.zone?.id||0).subscribe(
       response => {      
-        console.log('antes');  
+        //console.log('antes');  
         this.pests = response.body?.pets || [];
         console.log(this.pests);
         
         this.quantity = this.pests.length;
-        console.log('despues '+this.quantity);
+        //console.log('despues '+this.quantity);
       }
     );
   }

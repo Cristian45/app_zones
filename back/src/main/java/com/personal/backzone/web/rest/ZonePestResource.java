@@ -108,7 +108,8 @@ public class ZonePestResource {
 
 		return ResponseEntity
 				.created(new URI("/api/zone-pests/" + result.getId())).headers(HeaderUtil
-						.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+						//.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+						.createAlert(applicationName, "Fue creada una afectación de zona con ID "+result.getId().toString(), ""))
 				.body(result);
 	}
 
@@ -167,7 +168,9 @@ public class ZonePestResource {
 		zonePestService.updateDatazone(beforeZone, result);
 
 		return ResponseEntity.ok().headers(
-				HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, zonePestDTO.getId().toString()))
+				HeaderUtil
+				//.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, zonePestDTO.getId().toString()))
+				.createAlert(applicationName, "Fue actualizada una afectación de zona con ID "+result.getId().toString(), ""))
 				.body(result);
 	}
 
@@ -271,7 +274,9 @@ public class ZonePestResource {
 		zonePestService.delete(id);
 		this.zonePestService.updateDatazoneByDelete(zonePestDTOthis.get().getZoneId().getId());
 		return ResponseEntity.noContent()
-				.headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
+				.headers(HeaderUtil
+						//.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
+						.createAlert(applicationName, "Fue eliminada una afectación de zona con ID "+id, ""))
 				.build();
 	}
 }

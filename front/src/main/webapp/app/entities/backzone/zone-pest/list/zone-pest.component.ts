@@ -47,11 +47,11 @@ export class ZonePestComponent implements OnInit {
 
     this.zonePestService.findDataPest().subscribe(
       response => {      
-        console.log('antes');  
+        //console.log('antes');  
         console.log(response.body);
         this.zonePestCustom = response.body || [];
         console.log(this.zonePestCustom);        
-        console.log('despues ');
+        //console.log('despues ');
       }
     );
 
