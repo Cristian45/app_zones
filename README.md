@@ -9,9 +9,10 @@ This system allows for control and registration of coconut palm areas that are a
 To deploy this project run
 
 ```bash
+  cd docker-compose
+  
   docker-compose up -d
 ```
-
 
 ## Tech Stack
 
