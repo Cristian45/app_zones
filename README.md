@@ -20,25 +20,6 @@ To deploy this project run
 **Server:** Java, SpringBoot
 
 
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/Cristian45/app_zones/tree/master
-```
-
-Go to the project directory
-
-```bash
-  cd back/front
-```
-Start the component
-
-```bash
-  mvn
-```
-
 ## Screenshots
 
 ![App Screenshot](https://github.com/Cristian45/app_zones/blob/master/diagrams/architecture.jpg)
